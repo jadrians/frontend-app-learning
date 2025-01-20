@@ -32,7 +32,7 @@ const NewUserCourseHomeTourModal = ({
               id="tours.newUserModal.title"
               defaultMessage="{welcome} {siteName} course!"
               values={{
-                siteName: getConfig().SITE_NAME,
+                siteName: 'MéxicoX',
                 welcome: <span className="text-accent-b">{intl.formatMessage(messages.newUserModalTitleWelcome)}</span>,
               }}
             />

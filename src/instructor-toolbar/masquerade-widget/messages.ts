@@ -18,7 +18,7 @@ const messages = defineMessages({
   },
   titleViewAs: {
     id: 'instructor.toolbar.view.as',
-    defaultMessage: 'View this course as:',
+    defaultMessage: 'Ver este curso como  :',
     description: 'Button to view this course as',
   },
   titleStaff: {

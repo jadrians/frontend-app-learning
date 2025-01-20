@@ -656,7 +656,7 @@ describe('Outline Tab', () => {
         startDate.setDate(startDate.getDate() + 100);
         setMetadata({ is_enrolled: true, start: '2999-01-01T00:00:00Z' });
         await fetchAndRender();
-        const node = await screen.findByText('Course starts', { exact: false });
+        const node = await screen.findByText('Inicio del curso', { exact: false });
         expect(node.textContent).toMatch(/.* on .*/); // several days away uses "on" before date
       });
 

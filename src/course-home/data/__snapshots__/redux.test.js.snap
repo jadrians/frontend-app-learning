@@ -104,7 +104,7 @@ exports[`Data layer integration tests Test fetchDatesTab Should fetch, normalize
             "extraInfo": null,
             "learnerHasAccess": true,
             "link": "",
-            "title": "Course Starts",
+            "title": "Inicio del curso",
           },
           {
             "assignmentType": "Homework",
@@ -290,7 +290,7 @@ exports[`Data layer integration tests Test fetchDatesTab Should fetch, normalize
             "extraInfo": null,
             "learnerHasAccess": true,
             "link": "",
-            "title": "Course Ends",
+            "title": "Fin del curso",
           },
           {
             "date": "2030-09-01T00:00:00Z",
