@@ -47,7 +47,7 @@ Factory.define('outlineTabData')
     course_tools: [
       {
         analytics_id: 'edx.bookmarks',
-        title: 'Bookmarks',
+        title: 'Marcadores',
         url: 'https://example.com/bookmarks',
       },
     ],

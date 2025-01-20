@@ -552,7 +552,7 @@ describe('Outline Tab', () => {
     it('renders title when tools are available', async () => {
       await fetchAndRender();
       expect(screen.getByRole('heading', { name: 'Course Tools' })).toBeInTheDocument();
-      expect(screen.getByRole('link', { name: 'Bookmarks' })).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: 'Marcadores' })).toBeInTheDocument();
     });
 
     it('does not render title when tools are not available', async () => {

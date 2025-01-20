@@ -62,7 +62,9 @@ const DateSummary = ({
         </div>
         {dateBlock.description && (
           <div className="date-summary-text mt-1">
-            Después de esta fecha, el curso se archivará, lo que significa que podrás revisar el contenido del curso, pero ya no podrás participar en las actividades ni obtener un certificado.
+            Después de esta fecha, el curso se archivará,
+            lo que significa que podrás revisar el contenido del curso,
+            pero ya no podrás participar en las actividades ni obtener un certificado.
 
           </div>
         )}

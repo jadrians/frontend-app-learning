@@ -8,6 +8,16 @@ import Tabs from '../generic/tabs/Tabs';
 import { CoursewareSearch, CoursewareSearchToggle } from '../course-home/courseware-search';
 import { useCoursewareSearchState } from '../course-home/courseware-search/hooks';
 
+const convert = (title) => {
+  if (title === 'Course') {
+    return 'Cursos';
+  }
+  if (title === 'Progress') {
+    return 'Progreso';
+  }
+  return title;
+};
+
 const CourseTabsNavigation = ({
   activeTabSlug, className, tabs, intl,
 }) => {
@@ -28,7 +38,7 @@ const CourseTabsNavigation = ({
                   className={classNames('nav-item flex-shrink-0 nav-link', { active: slug === activeTabSlug })}
                   href={url}
                 >
-                  {title}
+                  {convert(title)}
                 </a>
               ))}
             </Tabs>
