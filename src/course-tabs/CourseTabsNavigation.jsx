@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
+import { useIntl } from '@edx/frontend-platform/i18n';
 import classNames from 'classnames';
 
 import messages from './messages';
@@ -19,8 +19,9 @@ const convert = (title) => {
 };
 
 const CourseTabsNavigation = ({
-  activeTabSlug, className, tabs, intl,
+  activeTabSlug, className, tabs,
 }) => {
+  const intl = useIntl();
   const { show } = useCoursewareSearchState();
 
   return (
@@ -61,7 +62,6 @@ CourseTabsNavigation.propTypes = {
     slug: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   })).isRequired,
-  intl: intlShape.isRequired,
 };
 
 CourseTabsNavigation.defaultProps = {
@@ -69,4 +69,4 @@ CourseTabsNavigation.defaultProps = {
   className: null,
 };
 
-export default injectIntl(CourseTabsNavigation);
+export default CourseTabsNavigation;

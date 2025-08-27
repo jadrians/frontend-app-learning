@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
+import { useIntl } from '@edx/frontend-platform/i18n';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
@@ -16,7 +16,8 @@ import LoadedTabPage from './LoadedTabPage';
 import { setCallToActionToast } from '../course-home/data/slice';
 import LaunchCourseHomeTourButton from '../product-tours/newUserCourseHomeTour/LaunchCourseHomeTourButton';
 
-const TabPage = ({ intl, ...props }) => {
+const TabPage = (props) => {
+  const intl = useIntl();
   const {
     activeTabSlug,
     courseId,
@@ -90,11 +91,10 @@ TabPage.defaultProps = {
 
 TabPage.propTypes = {
   activeTabSlug: PropTypes.string.isRequired,
-  intl: intlShape.isRequired,
   courseId: PropTypes.string,
   courseStatus: PropTypes.string.isRequired,
   metadataModel: PropTypes.string.isRequired,
   unitId: PropTypes.string,
 };
 
-export default injectIntl(TabPage);
+export default TabPage;
