@@ -5,7 +5,7 @@ export const DismissButtonFormattedMessage = () => (
   <FormattedMessage
     id="tours.button.dismiss"
     defaultMessage="Descartar"
-    description="A button used to close the tour of the website"
+    description="A button used to close the tour of the website."
   />
 );
 
