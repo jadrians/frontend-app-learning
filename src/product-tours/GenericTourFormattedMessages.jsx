@@ -4,7 +4,7 @@ import { FormattedMessage } from '@edx/frontend-platform/i18n';
 export const DismissButtonFormattedMessage = () => (
   <FormattedMessage
     id="tours.button.dismiss"
-    defaultMessage="Dismiss"
+    defaultMessage="Descartar"
     description="A button used to close the tour of the website"
   />
 );
