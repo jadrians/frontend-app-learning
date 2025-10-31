@@ -21,6 +21,6 @@ export const OkayButtonFormattedMessage = () => (
   <FormattedMessage
     id="tours.button.okay"
     defaultMessage="Aceptar"
-    description="A button used to end the tour of the website"
+    description="A button used to end the tour of the website."
   />
 );
