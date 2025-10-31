@@ -48,12 +48,13 @@ const WelcomeMessage = ({ courseId, nextElementRef }) => {
       data-testid="alert-container-welcome"
       variant="light"
       stacked
-      dismissible
+
       show={display}
       onClose={() => {
         nextElementRef.current?.focus();
         setDisplay(false);
         dispatch(dismissWelcomeMessage(courseId));
+
       }}
       className="raised-card"
       actions={messageCanBeShortened ? [
