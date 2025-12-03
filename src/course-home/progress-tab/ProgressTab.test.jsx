@@ -111,7 +111,7 @@ describe('Progress Tab', () => {
       await fetchAndRender();
       sendTrackEvent.mockClear();
 
-      const outlineTabLink = screen.getAllByRole('link', { name: 'Course Outline' });
+      const outlineTabLink = screen.getAllByRole('link', { name: 'Course outline' });
       fireEvent.click(outlineTabLink[1]); // outlineTabLink[0] corresponds to the link in the DetailedGrades component
 
       expect(sendTrackEvent).toHaveBeenCalledTimes(1);
@@ -471,9 +471,12 @@ describe('Progress Tab', () => {
       await fetchAndRender();
       expect(screen.getByText('limited feature')).toBeInTheDocument();
       expect(screen.getByText('Unlock to work towards a certificate.')).toBeInTheDocument();
-      expect(screen.queryAllByText('You have limited access to graded assignments as part of the audit track in this course.')).toHaveLength(2);
+      expect(screen.queryAllByText(
+        'You have limited access to graded assignments as part of the audit track in this course.',
+        { exact: false },
+      )).toHaveLength(2);
 
-      expect(screen.queryAllByTestId('blocked-icon')).toHaveLength(4);
+      expect(screen.queryAllByTestId('locked-icon')).toHaveLength(4);
     });
 
     it('does not render subsections for which showGrades is false', async () => {
@@ -893,7 +896,7 @@ describe('Progress Tab', () => {
       sendTrackEvent.mockClear();
       expect(screen.getByText('Detailed grades')).toBeInTheDocument();
 
-      const outlineLink = screen.getAllByRole('link', { name: 'Course Outline' })[0];
+      const outlineLink = screen.getAllByRole('link', { name: 'Course outline' })[0];
       fireEvent.click(outlineLink);
 
       expect(sendTrackEvent).toHaveBeenCalledTimes(1);

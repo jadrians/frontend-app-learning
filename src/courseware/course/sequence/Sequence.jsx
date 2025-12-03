@@ -9,7 +9,6 @@ import {
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { useSelector } from 'react-redux';
 import SequenceExamWrapper from '@edx/frontend-lib-special-exams';
-import { useToggle } from '@openedx/paragon';
 
 import PageLoading from '@src/generic/PageLoading';
 import { useModel } from '@src/generic/model-store';
@@ -35,7 +34,6 @@ const Sequence = ({
   previousSequenceHandler,
 }) => {
   const intl = useIntl();
-  const [isOpen, open, close] = useToggle();
   const {
     canAccessProctoredExams,
     license,
@@ -45,6 +43,7 @@ const Sequence = ({
     originalUserIsStaff,
   } = useModel('courseHomeMeta', courseId);
   const sequence = useModel('sequences', sequenceId);
+  const section = useModel('sections', sequence ? sequence.sectionId : null);
   const unit = useModel('units', unitId);
   const sequenceStatus = useSelector(state => state.courseware.sequenceStatus);
   const sequenceMightBeUnit = useSelector(state => state.courseware.sequenceMightBeUnit);
@@ -145,6 +144,7 @@ const Sequence = ({
 
   const renderUnitNavigation = (isAtTop) => (
     <UnitNavigation
+      courseId={courseId}
       sequenceId={sequenceId}
       unitId={unitId}
       isAtTop={isAtTop}
@@ -162,7 +162,12 @@ const Sequence = ({
   const defaultContent = (
     <>
       <div className="sequence-container d-inline-flex flex-row w-100">
-        <CourseOutlineSidebarTriggerSlot />
+        <CourseOutlineSidebarTriggerSlot
+          sectionId={section ? section.id : null}
+          sequenceId={sequenceId}
+          isStaff={isStaff}
+          unitId={unitId}
+        />
         <CourseOutlineSidebarSlot />
         <div className="sequence w-100">
           {!isEnabledOutlineSidebar && (
@@ -185,9 +190,6 @@ const Sequence = ({
                 {...{
                   nextSequenceHandler,
                   handleNavigate,
-                  isOpen,
-                  open,
-                  close,
                 }}
               />
             </div>
@@ -201,6 +203,8 @@ const Sequence = ({
               unitId={unitId}
               unitLoadedHandler={handleUnitLoaded}
               isOriginalUserStaff={originalUserIsStaff}
+              isEnabledOutlineSidebar={isEnabledOutlineSidebar}
+              renderUnitNavigation={renderUnitNavigation}
             />
             {unitHasLoaded && renderUnitNavigation(false)}
           </div>
@@ -221,7 +225,6 @@ const Sequence = ({
           originalUserIsStaff={originalUserIsStaff}
           canAccessProctoredExams={canAccessProctoredExams}
         >
-          {isEnabledOutlineSidebar && renderUnitNavigation(true)}
           {defaultContent}
         </SequenceExamWrapper>
         <CourseLicense license={license || undefined} />

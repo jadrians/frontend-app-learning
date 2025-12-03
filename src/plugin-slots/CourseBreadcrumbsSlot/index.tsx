@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PluginSlot } from '@openedx/frontend-plugin-framework';
 
-import CourseBreadcrumbs from '../../courseware/course/CourseBreadcrumbs';
+import CourseBreadcrumbs from '../../courseware/course/breadcrumbs';
 
 interface Props {
   courseId: string;
@@ -16,7 +16,8 @@ export const CourseBreadcrumbsSlot : React.FC<Props> = ({
   courseId, sectionId, sequenceId, unitId, isStaff,
 }) => (
   <PluginSlot
-    id="course_breadcrumbs_slot"
+    id="org.openedx.frontend.learning.course_breadcrumbs.v1"
+    idAliases={['course_breadcrumbs_slot']}
     slotOptions={{
       mergeProps: true,
     }}
